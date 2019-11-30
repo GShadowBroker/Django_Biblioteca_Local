@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Biblioteca Local</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Título: {{livro.título}}</h1>
+
+    <p><strong>Autor: </strong><a href="{% url 'detalhe-autor' livro.autor.pk %}">{{ livro.autor }}</a></p>
+    <p><strong>Resumo: </strong>{{ livro.resumo }}</p>
+    <p><strong>ISBN: </strong>{{ livro.isbn }}</p>
+    <p><strong>Idioma: </strong>{{ livro.idioma.all }}</p>
+    <p><strong>Gênero: </strong>{{ livro.gênero.all|join:", " }}</p>
+
+    <div style="margin-left:20px; margin-top:20px;">
+        <h4>Exemplares:</h4>
+
+        {% for cópia in livro.livroinstância_set.all %} <!-- livro.livroinstância_set.all is automagically genned by django => returns all livroinstancias associated with a specific livro -->
+            <hr>
+            <p class="{% if cópia.estado == 'd' %}text-success{% elif cópia.estado == 'm' %}text-danger{% else %}text-warning{% endif %}">
+                {{ cópia.get_estado_display }}
+            </p>
+            {% if cópia.estado != 'd' %}
+            <p><strong>Data prevista de devolução: </strong>{{ cópia.data_de_devolução }}</p>
+            {% endif %}
+            <p><strong>Impressão:</strong> {{ cópia.impressão }}</p>
+            <p class="text-muted"><strong>Id:</strong> {{ cópia.id }}</p>
+
+            {% if perms.catalog.can_edit_content %}
+            <p><a href="{% url 'atualizar-livro' cópia.pk %}"><i class="far fa-edit"> Atualizar</i></a></p>
+            <p><a href="{% url 'excluir-livro' cópia.pk %}"><i class="far fa-trash-alt"> Excluir</i></a></p>
+            {% endif %}
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

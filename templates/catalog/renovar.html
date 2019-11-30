@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Renovar: {{ livro_instância.livro.título }}</h1>
+    <p>Locatário: {{ livro_instância.locatário }}</p>
+    <p {% if livro_instância.is_overdue %}class="text-danger"{% endif %}>Data de devolução: {{ livro_instância.data_de_devolução }}</p>
+
+    <form action="" method="POST">{% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <input type="submit" value="Atualizar">
+    </form>
+
+{% endblock %}

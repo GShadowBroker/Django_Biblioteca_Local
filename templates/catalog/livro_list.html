@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Biblioteca Local</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Lista de Livros</h1>
+        {% if livro_list %}
+        <ul>
+            {% for livro in livro_list %}
+            <li><a href="{{ livro.get_absolute_url }}">{{livro.título}}</a href="{% url 'detalhe-autor' livro.autor.pk %}"> ({{livro.autor}})</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>Nenhum livro encontrado nesta biblioteca.</p>
+        {% endif %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Livros Emprestados de {{ user.get_username }}:</h1>
+
+    {% if livroinstância_list %}
+    <ul>
+        {% for livroins in livroinstância_list %}
+        <li class="{% if livroins.is_overdue %}text-danger{% endif %}">
+            <a href="{% url 'detalhe-livro' livroins.livro.pk %}">{{livroins.livro.título}}</a> ({{ livroins.data_de_devolução }}). {% if livroins.is_overdue %}<i style="{color: red;}" class="fas fa-exclamation-triangle"> ATRASADO!</i>{% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+
+    {% else %}
+        <p>Não há livros emprestados</p>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,205 @@
+html,
+body {
+    margin: 0 auto;
+    padding: 0;
+
+    height: 100%;
+    width: 100%;
+}
+body {
+    background-image: url(../images/library.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#container-fluid {
+    margin:auto;
+    overflow: hidden;
+
+    min-height: 100%;
+    min-width: 100%;
+    position: relative;
+}
+
+.content {
+    padding-bottom: 100px;
+    padding-top: 100px;
+}
+
+.navbar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    background-color: black;
+    opacity: 0.8;
+    width: 100%;
+    padding: 0px 0px 0px 0px;
+}
+
+#nav-container {
+    height: 100%;
+    padding: 20px;
+}
+
+.navbar-header {
+    border-right: 1px solid white;
+    height: 100%;
+}
+.navbar-header a {
+    text-decoration-line: none;
+    color: tomato;
+    transition: 0.3s;
+}
+.navbar-header a:hover {
+    text-decoration-line: none;
+    color: rgb(221, 61, 33);
+}
+
+.navbar ul {
+
+
+    display: block;
+    position: relative;
+}
+.navbar ul li {
+    display: inline-block;
+
+    width: fit-content;
+    width: -moz-fit-content;
+    
+}
+.navbar ul li a {
+    padding: 20px;
+    color: white;
+    text-decoration-line: none;
+    transition: 0.3s;
+    font-weight: bold;
+}
+.navbar ul li a:hover {
+    background-color: tomato;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+.login-button {
+    width: fit-content;
+    width: -moz-fit-content;
+}
+    .logged-username {
+        width: fit-content;
+        width: -moz-fit-content;
+        color: white;
+
+        position: relative;
+        display: inline-block;
+
+        justify-items: center;
+        align-items: center;
+
+        border-bottom: 1px solid blue; 
+        margin: 0;
+        padding: 10px 15px 10px 15px;
+    }
+        .logged-username a {
+            padding: 20px;
+            text-decoration-line: none;
+            color: white;
+        }
+        .logged-username:hover .logout-panel {
+            display: block;
+        }
+    .login-button a {
+        padding: 10px 20px 10px 20px;
+        border: 1px solid tomato;
+        
+        text-decoration: none;
+        color: tomato;
+        transition: 0.3s;
+    }
+    .login-button a:hover {
+        background-color: tomato;
+        color: black;
+    }
+
+    .logout-panel {
+        display: none;
+        z-index: 100;
+        padding: 20px;
+        position: absolute;
+        right: 5px;
+        top: 48px;
+
+        background-color: white;
+        color: red;
+        box-shadow: 1px 1px 4px black;
+        border-radius: 5px;
+    }
+        .logout-panel a {
+            color: red;
+            text-decoration-line: none;
+
+            transition: 0.3s;
+        }
+            .logout-panel a:hover {
+                color: red;
+                text-shadow: 1px 1px 4px red;
+            }
+
+.panel {
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px black;
+
+    max-width: 70%;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 40px 40px 20px 40px;
+}
+.panel h1,
+.panel h2,
+.panel h3,
+.panel h4 {
+    color: tomato;
+}
+
+.pagination {
+    margin: auto;
+    width: fit-content;
+    width: -moz-fit-content;
+    padding: 20px;
+}
+.btn-primary {
+    padding: 0;
+    border-radius: 5px;
+}
+.btn-primary a {
+    padding: 5px 20px 5px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+footer {
+    background-image: url(../images/wood.jpg);
+    background-position: center;
+    background-size: 100%;
+
+    color: white;
+
+    display: flex;
+    padding: 30px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 100px;
+
+    justify-content: space-around;
+}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Ferramentas de edição de conteúdo</h1>
+    <hr>
+    <h3>Autor:</h3>
+    <ul>
+        <li><i class="far fa-plus-square"> <a href="{% url 'criar-autor' %}">Adicionar novo autor</a></i></li>
+        <li><i class="far fa-edit"> <a href="{% url 'autores' %}">Atualizar dados de autor</a></i></li>
+        <li><i class="far fa-trash-alt"> <a href="{% url 'autores' %}">Excluir autor</a></i></li>
+    </ul>
+    <hr>
+    <h3>Livro:</h3>
+    <ul>
+        <li><i class="far fa-plus-square"> <a href="{% url 'criar-livro' %}">Adicionar novo livro</a></i></li>
+        <li><i class="far fa-edit"> <a href="{% url 'livros' %}">Atualizar dados de livro</a></i></li>
+        <li><i class="far fa-trash-alt"> <a href="{% url 'livros' %}">Excluir livro</a></i></li>
+    </ul>
+    <hr>
+
+
+{% endblock %}

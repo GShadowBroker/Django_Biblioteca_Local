@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Biblioteca Local</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Autor: {{autor.nome}} {{autor.sobrenome}} </h1>
+
+    {% if perms.catalog.can_edit_content %}
+    <p><a href="{% url 'atualizar-autor' autor.pk %}"><i class="far fa-edit"> Atualizar</i></a></p>
+    <p><a href="{% url 'excluir-autor' autor.pk %}"><i class="far fa-trash-alt"> Excluir</i></a></p>
+    {% endif %}
+
+    <p><strong>Data de nascimento: </strong>
+        {% if autor.nascimento %}
+            {{ autor.nascimento }}
+        {% else %}
+            --
+        {% endif %}
+    </p>
+    <p><strong>Data da morte: </strong>
+        {% if autor.morte %}
+            {{ autor.morte }}
+        {% else %}
+            --
+        {% endif %}
+    </p>
+
+    <div style="margin-left:20px; margin-top:20px;">
+        <h4>Obras deste autor na biblioteca:</h4>
+        {% if autor.livro_set.all %}
+            {% for obra in autor.livro_set.all %}
+                <hr>
+                <h4><a href="{% url 'detalhe-livro' obra.pk %}">{{ obra.título }}</a></h4>
+                <p><strong>Resumo: </strong>{{ obra.resumo }}</p>
+                <p><strong>ISBN: </strong>{{ obra.isbn }}</p>
+            {% endfor %}
+        {% else %}
+            <p class="text-danger">Não há obras deste autor no banco de dados.</p>
+        {% endif %}
+    </div>
+
+{% endblock %}

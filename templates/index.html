@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Biblioteca Local</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Biblioteca Local Home</h1>
+    <p>Seja bem-vindo(a) à plataforma de livros da Biblioteca, um website desenvolvido por <em>Glédyson Ferreira dos Santos</em>!</p>
+    <h2>Conteúdo Dinâmico</h2>
+    <p>A biblioteca tem o seguinte número de registros:</p>
+    <ul>
+        <li><strong>Livros: </strong>{{num_livros}}</li>
+        <li><strong>Cópias: </strong>{{num_instâncias}}</li>
+        <li><strong>Cópias disponíveis: </strong>{{num_instâncias_disponíveis}}</li>
+        <li><strong>Autores: </strong>{{num_autores}}</li>
+        <li><strong>Gêneros: </strong>{{num_gêneros}}</li>
+        <li><strong>Títulos que contém 'maionese': </strong>{{num_livros_maionese}}</li>
+    </ul>
+    <hr>
+    <p>Você visitou esta página {{ num_visitas }}{% if num_visitas == 1 %} vez.{% else %} vezes.{% endif %}</p>
+{% endblock %}

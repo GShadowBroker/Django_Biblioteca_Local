@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Excluir Livro</h1>
+
+    <p>Tem certeza de que deseja excluir o livro: {{ livroinstância }}?</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Sim, excluir.">
+    </form>
+{% endblock %}

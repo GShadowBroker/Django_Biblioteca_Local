@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Biblioteca Local</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Lista de Autores</h1>
+        {% if autor_list %}
+        <ul>
+            {% for autor in autor_list %}
+            <li><a href="{{autor.get_absolute_url}}">{{autor.nome}} {{autor.sobrenome}} 
+                {% if autor.nascimento %}
+                 ({{autor.nascimento}} - {{autor.morte}})
+                {% endif %}
+            </a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>Nenhum autor encontrado.</p>
+        {% endif %}
+{% endblock %}
